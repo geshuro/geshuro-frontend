@@ -149,7 +149,7 @@ Crear archivo `.env` para configuraciones:
 
 ```env
 # Configuración de contacto
-CONTACT_EMAIL=isaac@geshuro.io
+CONTACT_EMAIL=isaac@geshuro.me
 CONTACT_PHONE=+1234567890
 
 # Redes sociales
@@ -188,7 +188,7 @@ Las contribuciones son bienvenidas. Por favor:
 
 ## 📞 Contacto
 
-- **Email**: isaac@geshuro.io
+- **Email**: isaac@geshuro.me
 - **LinkedIn**: [Isaac Mendoza](https://linkedin.com/in/tu-perfil)
 - **GitHub**: [@tu-usuario](https://github.com/tu-usuario)
 
