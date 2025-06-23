@@ -1,0 +1,17 @@
+# Ignore node_modules, as they will be installed in the container
+node_modules/
+
+# Ignore build artifacts, as they are generated during the build
+dist/
+
+# Ignore local development configurations
+.angular/
+npm-debug.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE-specific files
+.vscode/
+.idea/ 
