@@ -1,0 +1,26 @@
+.main-content {
+  padding-top: 80px; /* Compensar el header fijo */
+}
+
+/* Smooth scrolling para navegación */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilos para scroll personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
