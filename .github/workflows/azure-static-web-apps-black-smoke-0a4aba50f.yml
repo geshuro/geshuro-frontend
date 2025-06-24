@@ -18,19 +18,25 @@ permissions:
 jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     name: Build and Deploy Job
     steps:
+      - name: Clean workspace
+        run: |
+          sudo rm -rf .git
+          sudo rm -rf *
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           submodules: true
           lfs: false
+          clean: true
       - name: Fix Git permissions
         run: |
-          sudo chown -R $USER:$USER .git
-          chmod -R 755 .git
+          sudo chown -R $USER:$USER .
+          chmod -R 755 .
+          git config --global --add safe.directory $GITHUB_WORKSPACE
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -51,17 +57,23 @@ jobs:
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     name: Close Pull Request Job
     steps:
+      - name: Clean workspace
+        run: |
+          sudo rm -rf .git
+          sudo rm -rf *
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          clean: true
       - name: Fix Git permissions
         run: |
-          sudo chown -R $USER:$USER .git
-          chmod -R 755 .git
+          sudo chown -R $USER:$USER .
+          chmod -R 755 .
+          git config --global --add safe.directory $GITHUB_WORKSPACE
       - name: Close Pull Request
         id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
