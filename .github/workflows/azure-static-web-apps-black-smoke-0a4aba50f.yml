@@ -44,7 +44,7 @@ jobs:
           action: "upload"
           app_location: "/"
           api_location: ""
-          output_location: "dist/portfolio-profesional"
+          output_location: "dist/portfolio-profesional/browser"
           skip_app_build: true
 
   close_pull_request_job:
