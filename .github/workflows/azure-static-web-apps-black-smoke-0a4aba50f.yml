@@ -19,11 +19,16 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           submodules: true
           lfs: false
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Fix Git permissions
+        run: |
+          sudo chown -R $USER:$USER .git
+          chmod -R 755 .git
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -47,12 +52,17 @@ jobs:
     runs-on: ubuntu-latest
     name: Close Pull Request Job
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      - name: Fix Git permissions
+        run: |
+          sudo chown -R $USER:$USER .git
+          chmod -R 755 .git
       - name: Close Pull Request
         id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLACK_SMOKE_0a4aba50F }}
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BLACK_SMOKE_0A4ABA50F }}
           action: "close"
