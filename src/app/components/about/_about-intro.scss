@@ -1,0 +1,29 @@
+.about-intro {
+  margin-bottom: 50px;
+}
+.about-intro h3 {
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  position: relative;
+}
+.about-intro h3::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary-color);
+  border-radius: 2px;
+}
+.about-description {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.about-description:last-child {
+  margin-bottom: 0;
+} 
